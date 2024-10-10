@@ -45,7 +45,7 @@ class _LabAmountScreenState extends State<LabAmountScreen> {
           children: [
             Expanded(
               child: CustomText(
-                'Op Amount',
+                'Lab Amount',
                 fontSize: appBarTextFont,
               ),
             ),

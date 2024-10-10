@@ -23,7 +23,8 @@ import 'package:mg_dashboard/ui/lab/labAmountScreen.dart';
 import 'package:mg_dashboard/ui/op/opAmountScreen.dart';
 import 'package:mg_dashboard/ui/op/opCountScreen.dart';
 import 'package:mg_dashboard/ui/paid/paidPatientsScreen.dart';
-import 'package:mg_dashboard/ui/purchase/pharmacyPurchaseScreen.dart';
+import 'package:mg_dashboard/ui/pharmacy/pharmacyAmountScreen.dart';
+import 'package:mg_dashboard/ui/pharmacy/pharmacyPurchaseScreen.dart';
 import 'package:mg_dashboard/ui/reviewed/reviewedPatientsScreen.dart';
 import 'package:mg_dashboard/ui/room/roomListScreen.dart';
 import 'package:mg_dashboard/ui/upi/upiHdrScreen.dart';
@@ -290,7 +291,16 @@ class _DashboardscreenState extends State<Dashboardscreen> {
               iconPath: "assets/icons/pharmacy.svg",
               iconColor: Colors.green,
               iconBgColor: Colors.green[100]!,
-              onSelected: () {}),
+              onSelected: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PharmacyAmount(
+                      accountId: dashboardModel.phId ?? 0,
+                    ),
+                  ),
+                );
+              }),
         ],
       ),
     );
