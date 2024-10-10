@@ -105,7 +105,7 @@ class _ReviewedPatientsScreenState extends State<ReviewedPatientsScreen> {
                                     "Department",
                                     textColor: ColorConst.primaryFont,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.end,
+                                    textAlign: TextAlign.start,
                                   ),
                                 ),
                                 Expanded(
@@ -203,7 +203,7 @@ class _ReviewedPatientsScreenState extends State<ReviewedPatientsScreen> {
                                               Expanded(
                                                 child: CustomText(
                                                   model.departmentName,
-                                                  textAlign: TextAlign.end,
+                                                  textAlign: TextAlign.start,
                                                 ),
                                               ),
                                               Expanded(
@@ -211,7 +211,7 @@ class _ReviewedPatientsScreenState extends State<ReviewedPatientsScreen> {
                                                 model.amount!
                                                     .toStringAsFixed(0),
                                                 textAlign: TextAlign.end,
-                                              )),
+                                              ),),
                                             ],
                                           ),
                                         ),

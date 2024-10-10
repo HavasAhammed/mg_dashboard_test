@@ -2,7 +2,7 @@ class OpCountDtlModel {
   String? tDate;
   String? mrno;
   String? patName;
-  int? amount;
+  double? amount;
 
   OpCountDtlModel({this.tDate, this.mrno, this.patName, this.amount});
 
@@ -11,7 +11,7 @@ class OpCountDtlModel {
         tDate: json['tDate'] as String?,
         mrno: json['mrno'] as String?,
         patName: json['patName'] as String?,
-        amount: json['amount'] as int?,
+        amount: json['amount'] as double?,
       );
 
   Map<String, dynamic> toJson() => {

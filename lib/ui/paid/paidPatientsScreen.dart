@@ -105,7 +105,7 @@ class _PaidPatientsScreenState extends State<PaidPatientsScreen> {
                                     "Department",
                                     textColor: ColorConst.primaryFont,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.end,
+                                    textAlign: TextAlign.start,
                                   ),
                                 ),
                                 Expanded(
@@ -215,7 +215,7 @@ class _PaidPatientsScreenState extends State<PaidPatientsScreen> {
                                                 child: CustomText(
                                                   model.departmentName
                                                       .toString(),
-                                                  textAlign: TextAlign.end,
+                                                  textAlign: TextAlign.start,
                                                 ),
                                               ),
                                               Expanded(

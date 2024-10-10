@@ -80,7 +80,7 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                             child: const Row(
                               children: [
                                 SizedBox(
-                                  width: 45,
+                                  width: 30,
                                   child: CustomText(
                                     "Sl",
                                     textColor: ColorConst.primaryFont,
@@ -88,7 +88,7 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                                   ),
                                 ),
                                 Expanded(
-                                  // flex: 2,
+                                  flex: 6,
                                   child: CustomText(
                                     "Doctor Name",
                                     textColor: ColorConst.primaryFont,
@@ -97,27 +97,30 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                                   ),
                                 ),
                                 Expanded(
+                                  flex: 4,
                                   child: CustomText(
                                     "Department",
                                     textColor: ColorConst.primaryFont,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.start,
                                   ),
                                 ),
                                 Expanded(
+                                  flex: 4,
                                   child: CustomText(
                                     "Designation",
                                     textColor: ColorConst.primaryFont,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.start,
                                   ),
                                 ),
                                 Expanded(
+                                  flex: 4,
                                   child: CustomText(
                                     "Qualification",
                                     textColor: ColorConst.primaryFont,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.start,
                                   ),
                                 ),
                               ],
@@ -156,34 +159,37 @@ class _DoctorListScreenState extends State<DoctorListScreen> {
                                           child: Row(
                                             children: [
                                               SizedBox(
-                                                width: 45,
+                                                width: 30,
                                                 child: CustomText(
                                                   "${index + 1}) ",
                                                 ),
                                               ),
                                               Expanded(
-                                                // flex: 2,
+                                                flex: 6,
                                                 child: CustomText(
                                                   model.doctorName,
                                                   textAlign: TextAlign.start,
                                                 ),
                                               ),
                                               Expanded(
+                                                flex: 4,
                                                 child: CustomText(
                                                   model.department,
-                                                  textAlign: TextAlign.center,
+                                                  textAlign: TextAlign.start,
                                                 ),
                                               ),
                                               Expanded(
+                                                flex: 4,
                                                 child: CustomText(
                                                   model.designation,
-                                                  textAlign: TextAlign.center,
+                                                  textAlign: TextAlign.start,
                                                 ),
                                               ),
                                               Expanded(
+                                                flex: 4,
                                                 child: CustomText(
                                                   model.qualification,
-                                                  textAlign: TextAlign.center,
+                                                  textAlign: TextAlign.start,
                                                 ),
                                               ),
                                             ],
