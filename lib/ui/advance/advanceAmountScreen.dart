@@ -14,18 +14,18 @@ import 'package:mg_dashboard/utils/colorConst.dart';
 import 'package:mg_dashboard/utils/extensions.dart';
 import 'package:mg_dashboard/utils/fontConst.dart';
 
-class PharmacyAmountScreen extends StatefulWidget {
-  const PharmacyAmountScreen({
+class AdvanceAmountScreen extends StatefulWidget {
+  const AdvanceAmountScreen({
     super.key,
     required this.accountId,
   });
   final int accountId;
 
   @override
-  State<PharmacyAmountScreen> createState() => _PharmacyAmountScreenState();
+  State<AdvanceAmountScreen> createState() => _AdvanceAmountScreenState();
 }
 
-class _PharmacyAmountScreenState extends State<PharmacyAmountScreen> {
+class _AdvanceAmountScreenState extends State<AdvanceAmountScreen> {
   bool _isVisible = false;
   bool isLoading = false;
   List<AmountModel> dataList = [];
@@ -45,7 +45,7 @@ class _PharmacyAmountScreenState extends State<PharmacyAmountScreen> {
           children: [
             Expanded(
               child: CustomText(
-                'Pharmacy Amount',
+                'Advance Amount',
                 fontSize: appBarTextFont,
               ),
             ),

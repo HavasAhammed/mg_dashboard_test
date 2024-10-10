@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mg_dashboard/models/DashboardModel.dart';
 import 'package:mg_dashboard/provider/appProvider.dart';
+import 'package:mg_dashboard/ui/advance/advanceAmountScreen.dart';
 import 'package:mg_dashboard/ui/booking/bookingScreen.dart';
 import 'package:mg_dashboard/ui/born/bornCountScreen.dart';
 import 'package:mg_dashboard/ui/card/cardHdrScreen.dart';
@@ -295,7 +296,7 @@ class _DashboardscreenState extends State<Dashboardscreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PharmacyAmount(
+                    builder: (context) => PharmacyAmountScreen(
                       accountId: dashboardModel.phId ?? 0,
                     ),
                   ),
@@ -321,7 +322,16 @@ class _DashboardscreenState extends State<Dashboardscreen> {
               iconPath: "assets/icons/advanceAmt.svg",
               iconColor: Colors.red,
               iconBgColor: Colors.red[100]!,
-              onSelected: () {}),
+              onSelected: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AdvanceAmountScreen(
+                      accountId: dashboardModel.advanceId ?? 0,
+                    ),
+                  ),
+                );
+              }),
           gridCard(
               text: "OP Count",
               value: dashboardModel.totalOp ?? 0,
