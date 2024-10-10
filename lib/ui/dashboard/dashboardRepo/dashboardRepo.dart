@@ -17,9 +17,9 @@ import 'package:mg_dashboard/models/doctorsListModel.dart';
 import 'package:mg_dashboard/models/expiryMedicineModel.dart';
 import 'package:mg_dashboard/models/ipCountModel.dart';
 import 'package:mg_dashboard/models/leaveDoctorsModel.dart';
+import 'package:mg_dashboard/models/opAmountModel.dart';
 import 'package:mg_dashboard/models/opCountDtlModel.dart';
 import 'package:mg_dashboard/models/opCountHdrModel.dart';
-import 'package:mg_dashboard/models/opHdrModel.dart';
 import 'package:mg_dashboard/models/paidPatiantModel.dart';
 import 'package:mg_dashboard/models/pharmacyPurchaseModel.dart';
 import 'package:mg_dashboard/models/reviewedPatientModel.dart';
@@ -193,25 +193,6 @@ class DashboardRepo {
       } else {
         list = List<CashHdrModel>.from(response.responseObject['data']
             .map((x) => CashHdrModel.fromJson(x)));
-        return (false, list);
-      }
-    } catch (_) {
-      Toast.show(_.toString(), context, duration: 3);
-      return (true, list);
-    }
-  }
-
-  static Future<(bool isError, List<OpHdrModel> list)> getTotalOpHdr(
-      String json, BuildContext context) async {
-    ResponseModel response = await postApiData(Urls.getTotalOp, json);
-    List<OpHdrModel> list = [];
-    try {
-      if (response.isError) {
-        Toast.show(response.errorMessage ?? "", context, duration: 3);
-        return (true, list);
-      } else {
-        list = List<OpHdrModel>.from(
-            response.responseObject['data'].map((x) => OpHdrModel.fromJson(x)));
         return (false, list);
       }
     } catch (_) {
@@ -455,8 +436,8 @@ class DashboardRepo {
     }
   }
 
-  static Future<(bool isError, List<LeaveDoctorsModel> list)>
-      getLeaveDoctors(String json, BuildContext context) async {
+  static Future<(bool isError, List<LeaveDoctorsModel> list)> getLeaveDoctors(
+      String json, BuildContext context) async {
     ResponseModel response = await postApiData(Urls.getLeaveDoctors, json);
     List<LeaveDoctorsModel> list = [];
     try {
@@ -485,6 +466,25 @@ class DashboardRepo {
       } else {
         list = List<AvailableDoctorsModel>.from(response.responseObject['data']
             .map((x) => AvailableDoctorsModel.fromJson(x)));
+        return (false, list);
+      }
+    } catch (_) {
+      Toast.show(_.toString(), context, duration: 3);
+      return (true, list);
+    }
+  }
+
+  static Future<(bool isError, List<OpAmountModel> list)>
+      getOpAmount(String json, BuildContext context) async {
+    ResponseModel response = await postApiData(Urls.getAmount, json);
+    List<OpAmountModel> list = [];
+    try {
+      if (response.isError) {
+        Toast.show(response.errorMessage ?? "", context, duration: 3);
+        return (true, list);
+      } else {
+        list = List<OpAmountModel>.from(response.responseObject['data']
+            .map((x) => OpAmountModel.fromJson(x)));
         return (false, list);
       }
     } catch (_) {

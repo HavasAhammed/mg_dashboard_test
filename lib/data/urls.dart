@@ -50,6 +50,7 @@ class Urls {
   static String getIpCount= "${getBaseUrl()}dashboard/getAllIP";
   static String getLeaveDoctors= "${getBaseUrl()}dashboard/doctors/leave";
   static String getAvailableDoctors= "${getBaseUrl()}dashboard/doctors/present";
+  static String getAmount= "${getBaseUrl()}dashboard/getTotalIncomeDetails";
 
 
 }

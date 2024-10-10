@@ -19,8 +19,8 @@ import 'package:mg_dashboard/ui/expiry/expiryMedicineScreen.dart';
 import 'package:mg_dashboard/ui/incomeByDepartmentScreen.dart';
 import 'package:mg_dashboard/ui/ip/currentIpScreen.dart';
 import 'package:mg_dashboard/ui/ip/ipCountScreen.dart';
+import 'package:mg_dashboard/ui/op/opAmountScreen.dart';
 import 'package:mg_dashboard/ui/op/opCountScreen.dart';
-import 'package:mg_dashboard/ui/op/opHeaderScreen.dart';
 import 'package:mg_dashboard/ui/paid/paidPatientsScreen.dart';
 import 'package:mg_dashboard/ui/purchase/pharmacyPurchaseScreen.dart';
 import 'package:mg_dashboard/ui/reviewed/reviewedPatientsScreen.dart';
@@ -246,7 +246,8 @@ class _DashboardscreenState extends State<Dashboardscreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const CreditHdrScreen()),
+                    builder: (context) => const CreditHdrScreen(),
+                  ),
                 );
               }),
           gridCard(
@@ -258,7 +259,11 @@ class _DashboardscreenState extends State<Dashboardscreen> {
               onSelected: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const OpHdrScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => OpAmountScreen(
+                      accountId: dashboardModel.opId ?? 0,
+                    ),
+                  ),
                 );
               }),
           gridCard(
