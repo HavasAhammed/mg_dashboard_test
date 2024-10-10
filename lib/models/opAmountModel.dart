@@ -1,4 +1,4 @@
-class OpAmountModel {
+class AmountModel {
   DateTime? tDate;
   int? tNo;
   String? doctorName;
@@ -7,7 +7,7 @@ class OpAmountModel {
   String? serviceName;
   double? amount;
 
-  OpAmountModel({
+  AmountModel({
     this.tDate,
     this.tNo,
     this.doctorName,
@@ -17,7 +17,7 @@ class OpAmountModel {
     this.amount,
   });
 
-  factory OpAmountModel.fromJson(Map<String, dynamic> json) => OpAmountModel(
+  factory AmountModel.fromJson(Map<String, dynamic> json) => AmountModel(
         tDate: json["tDate"] == null ? null : DateTime.parse(json["tDate"]),
         tNo: json["tNo"],
         doctorName: json["doctorName"],

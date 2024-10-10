@@ -474,17 +474,17 @@ class DashboardRepo {
     }
   }
 
-  static Future<(bool isError, List<OpAmountModel> list)>
-      getOpAmount(String json, BuildContext context) async {
+  static Future<(bool isError, List<AmountModel> list)>
+      getAmount(String json, BuildContext context) async {
     ResponseModel response = await postApiData(Urls.getAmount, json);
-    List<OpAmountModel> list = [];
+    List<AmountModel> list = [];
     try {
       if (response.isError) {
         Toast.show(response.errorMessage ?? "", context, duration: 3);
         return (true, list);
       } else {
-        list = List<OpAmountModel>.from(response.responseObject['data']
-            .map((x) => OpAmountModel.fromJson(x)));
+        list = List<AmountModel>.from(response.responseObject['data']
+            .map((x) => AmountModel.fromJson(x)));
         return (false, list);
       }
     } catch (_) {

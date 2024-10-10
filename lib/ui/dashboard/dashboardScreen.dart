@@ -19,6 +19,7 @@ import 'package:mg_dashboard/ui/expiry/expiryMedicineScreen.dart';
 import 'package:mg_dashboard/ui/incomeByDepartmentScreen.dart';
 import 'package:mg_dashboard/ui/ip/currentIpScreen.dart';
 import 'package:mg_dashboard/ui/ip/ipCountScreen.dart';
+import 'package:mg_dashboard/ui/lab/labAmountScreen.dart';
 import 'package:mg_dashboard/ui/op/opAmountScreen.dart';
 import 'package:mg_dashboard/ui/op/opCountScreen.dart';
 import 'package:mg_dashboard/ui/paid/paidPatientsScreen.dart';
@@ -273,7 +274,16 @@ class _DashboardscreenState extends State<Dashboardscreen> {
               iconColor: Colors.yellow[900],
               iconBgColor: Colors.yellow[100],
               size: 18,
-              onSelected: () {}),
+              onSelected: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LabAmountScreen(
+                      accountId: dashboardModel.labId ?? 0,
+                    ),
+                  ),
+                );
+              }),
           gridCard(
               text: "Pharmacy Amount",
               value: dashboardModel.phAmount ?? 0,

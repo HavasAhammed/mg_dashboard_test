@@ -28,7 +28,7 @@ class OpAmountScreen extends StatefulWidget {
 class _OpAmountScreenState extends State<OpAmountScreen> {
   bool _isVisible = false;
   bool isLoading = false;
-  List<OpAmountModel> dataList = [];
+  List<AmountModel> dataList = [];
   ScrollController listScrollController = ScrollController();
 
   @override
@@ -95,12 +95,13 @@ class _OpAmountScreenState extends State<OpAmountScreen> {
                                   child: const Row(
                                     children: [
                                       SizedBox(
-                                          width: 45,
-                                          child: CustomText(
-                                            "Sl",
-                                            textColor: ColorConst.primaryFont,
-                                            fontWeight: FontWeight.bold,
-                                          )),
+                                        width: 45,
+                                        child: CustomText(
+                                          "Sl",
+                                          textColor: ColorConst.primaryFont,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
                                       Expanded(
                                         flex: 3,
                                         child: CustomText(
@@ -196,7 +197,7 @@ class _OpAmountScreenState extends State<OpAmountScreen> {
                                           physics:
                                               const NeverScrollableScrollPhysics(),
                                           itemBuilder: (context, index) {
-                                            OpAmountModel model =
+                                            AmountModel model =
                                                 dataList[index];
                                             return InkWell(
                                               child: Column(
@@ -311,7 +312,7 @@ class _OpAmountScreenState extends State<OpAmountScreen> {
       }
     });
 
-    var data = await DashboardRepo.getOpAmount(jsonData, context);
+    var data = await DashboardRepo.getAmount(jsonData, context);
     if (!data.$1) {
       dataList = data.$2;
     }
