@@ -10,7 +10,8 @@ class Urls {
 
   static dynamic getBaseUrl() {
     // return HiveDb.getUrl() + "apis/api/";
-    return 'https://app.gotoken.in/dashboard/api/';
+    // return 'https://app.gotoken.in/dashboard/api/';
+    return 'https://app.gotoken.in/dashboardhnckpba/api/';
   }
 
   static String getDashboardData = "${getBaseUrl()}dashboard/getDashBoardData";

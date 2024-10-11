@@ -1,0 +1,1 @@
+ D:\\flutter\ projects\\free\\mg_dashboard\\.dart_tool\\flutter_build\\328549199f9529975f5fbac36ce18634\\native_assets.yaml: 

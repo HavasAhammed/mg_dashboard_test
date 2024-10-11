@@ -1,0 +1,28 @@
+com.gotoken.dashboard.app-lifecycle-runtime-2.7.0-0 C:\Users\admin\.gradle\caches\transforms-3\002057d89da068d85bd201ac8fe9f762\transformed\lifecycle-runtime-2.7.0\res
+com.gotoken.dashboard.app-jetified-profileinstaller-1.3.1-1 C:\Users\admin\.gradle\caches\transforms-3\0cb9e576bfcb25a99970eefe09b706ff\transformed\jetified-profileinstaller-1.3.1\res
+com.gotoken.dashboard.app-lifecycle-livedata-core-2.7.0-2 C:\Users\admin\.gradle\caches\transforms-3\12a2f562e91c5d7411703e7987233970\transformed\lifecycle-livedata-core-2.7.0\res
+com.gotoken.dashboard.app-jetified-window-java-1.2.0-3 C:\Users\admin\.gradle\caches\transforms-3\30bc50a88657533666bd7afb786cf143\transformed\jetified-window-java-1.2.0\res
+com.gotoken.dashboard.app-core-runtime-2.2.0-4 C:\Users\admin\.gradle\caches\transforms-3\310c6a3b789ef36b6ef8328e19beb718\transformed\core-runtime-2.2.0\res
+com.gotoken.dashboard.app-fragment-1.7.1-5 C:\Users\admin\.gradle\caches\transforms-3\382f4bc20e490edd0309ce0a93a43ee5\transformed\fragment-1.7.1\res
+com.gotoken.dashboard.app-jetified-window-1.2.0-6 C:\Users\admin\.gradle\caches\transforms-3\5140dd5b0734a1d73c9834ef6b40ac49\transformed\jetified-window-1.2.0\res
+com.gotoken.dashboard.app-lifecycle-viewmodel-2.7.0-7 C:\Users\admin\.gradle\caches\transforms-3\56bc7a211816cbda446a851c66a3d708\transformed\lifecycle-viewmodel-2.7.0\res
+com.gotoken.dashboard.app-jetified-core-ktx-1.13.1-8 C:\Users\admin\.gradle\caches\transforms-3\58084fcc15e9e897b7a59940ce5de8b6\transformed\jetified-core-ktx-1.13.1\res
+com.gotoken.dashboard.app-jetified-core-1.0.0-9 C:\Users\admin\.gradle\caches\transforms-3\79d11babf34d88b3920a68ca4815efab\transformed\jetified-core-1.0.0\res
+com.gotoken.dashboard.app-jetified-savedstate-1.2.1-10 C:\Users\admin\.gradle\caches\transforms-3\83c3a3bae738c786e42558091d04ed68\transformed\jetified-savedstate-1.2.1\res
+com.gotoken.dashboard.app-jetified-annotation-experimental-1.4.0-11 C:\Users\admin\.gradle\caches\transforms-3\8731403b28952d2e574601fbbc3f43e8\transformed\jetified-annotation-experimental-1.4.0\res
+com.gotoken.dashboard.app-jetified-lifecycle-livedata-core-ktx-2.7.0-12 C:\Users\admin\.gradle\caches\transforms-3\8ead04bf395b58057ba9b8a63ee9d91c\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
+com.gotoken.dashboard.app-jetified-lifecycle-process-2.7.0-13 C:\Users\admin\.gradle\caches\transforms-3\988f103fb7cd981f6366d3936bacadf6\transformed\jetified-lifecycle-process-2.7.0\res
+com.gotoken.dashboard.app-jetified-activity-1.8.1-14 C:\Users\admin\.gradle\caches\transforms-3\a6cccfaa656f29213cd337337d15c0ce\transformed\jetified-activity-1.8.1\res
+com.gotoken.dashboard.app-jetified-tracing-1.2.0-15 C:\Users\admin\.gradle\caches\transforms-3\bc98eb86dd065a89f5953a33373b8b18\transformed\jetified-tracing-1.2.0\res
+com.gotoken.dashboard.app-lifecycle-livedata-2.7.0-16 C:\Users\admin\.gradle\caches\transforms-3\be4146e44214ec8321b3a9eeeb471196\transformed\lifecycle-livedata-2.7.0\res
+com.gotoken.dashboard.app-core-1.13.1-17 C:\Users\admin\.gradle\caches\transforms-3\ed0580981d9fe05d3b84f61494eced40\transformed\core-1.13.1\res
+com.gotoken.dashboard.app-jetified-startup-runtime-1.1.1-18 C:\Users\admin\.gradle\caches\transforms-3\f55b2893f8b2d5b70cbd6c5024e18b97\transformed\jetified-startup-runtime-1.1.1\res
+com.gotoken.dashboard.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-19 C:\Users\admin\.gradle\caches\transforms-3\f96fedaae93317278465de9e1a98b896\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
+com.gotoken.dashboard.app-main-20 D:\flutter projects\free\mg_dashboard\android\app\src\main\res
+com.gotoken.dashboard.app-release-21 D:\flutter projects\free\mg_dashboard\android\app\src\release\res
+com.gotoken.dashboard.app-pngs-22 D:\flutter projects\free\mg_dashboard\build\app\generated\res\pngs\release
+com.gotoken.dashboard.app-resValues-23 D:\flutter projects\free\mg_dashboard\build\app\generated\res\resValues\release
+com.gotoken.dashboard.app-packageReleaseResources-24 D:\flutter projects\free\mg_dashboard\build\app\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.gotoken.dashboard.app-packageReleaseResources-25 D:\flutter projects\free\mg_dashboard\build\app\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.gotoken.dashboard.app-merged-not-compiled-resources-26 D:\flutter projects\free\mg_dashboard\build\app\intermediates\merged-not-compiled-resources\release
+com.gotoken.dashboard.app-merged_res-27 D:\flutter projects\free\mg_dashboard\build\app\intermediates\merged_res\release
