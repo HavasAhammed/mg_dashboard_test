@@ -47,16 +47,18 @@ class _IncomeByDepartmentScreenState extends State<IncomeByDepartmentScreen> {
         title: Row(
           children: [
             Expanded(
-                child: CustomText(
-              "Income By Department",
-              fontSize: appBarTextFont,
-            )),
+              child: CustomText(
+                "Income By Department",
+                fontSize: appBarTextFont,
+              ),
+            ),
             InkWell(
-                onTap: _toggleContainer,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.filter_alt_outlined),
-                ))
+              onTap: _toggleContainer,
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Icons.filter_alt_outlined),
+              ),
+            ),
           ],
         ),
       ),
@@ -68,14 +70,14 @@ class _IncomeByDepartmentScreenState extends State<IncomeByDepartmentScreen> {
             scrollDirection: Axis.vertical,
             child: isLoading
                 ? Container(
-                    padding: EdgeInsets.all(190),
+                    padding: const EdgeInsets.all(190),
                     child: Center(child: LoadingCircle()),
                   )
                 : Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: context.getWidth(),
                         child: FilterWidget(
                           isVisible: _isVisible,
@@ -100,216 +102,231 @@ class _IncomeByDepartmentScreenState extends State<IncomeByDepartmentScreen> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          margin: EdgeInsets.symmetric(
+                                          margin: const EdgeInsets.symmetric(
                                               horizontal: 2),
                                           padding: const EdgeInsets.all(8.0),
                                           color: ColorConst.primaryColor,
                                           child: Row(
                                             children: [
-                                              Container(
+                                              SizedBox(
                                                 width: screenWidth / 2.9,
-                                                child: Row(
+                                                child: const Row(
                                                   children: [
-                                                    Container(
-                                                        width: 20,
-                                                        child: CustomText(
-                                                          "Sl",
-                                                          textColor: ColorConst
-                                                              .primaryFont,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        )),
+                                                    SizedBox(
+                                                      width: 20,
+                                                      child: CustomText(
+                                                        "Sl",
+                                                        textColor: ColorConst
+                                                            .primaryFont,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
                                                     Expanded(
-                                                        child: CustomText(
-                                                      "Service",
-                                                      textColor: ColorConst
-                                                          .primaryFont,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    )),
+                                                      child: CustomText(
+                                                        "Service",
+                                                        textColor: ColorConst
+                                                            .primaryFont,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
                                                   ],
                                                 ),
                                               ),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                    "Total",
-                                                    textColor:
-                                                        ColorConst.primaryFont,
-                                                    fontWeight: FontWeight.bold,
-                                                    textAlign: TextAlign.end,
-                                                  )),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                    "Percent",
-                                                    textColor:
-                                                        ColorConst.primaryFont,
-                                                    fontWeight: FontWeight.bold,
-                                                    textAlign: TextAlign.end,
-                                                  )),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                    "General",
-                                                    textColor:
-                                                        ColorConst.primaryFont,
-                                                    fontWeight: FontWeight.bold,
-                                                    textAlign: TextAlign.end,
-                                                  )),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                    "Pharmacy",
-                                                    textColor:
-                                                        ColorConst.primaryFont,
-                                                    fontWeight: FontWeight.bold,
-                                                    textAlign: TextAlign.end,
-                                                  )),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                    "Lab",
-                                                    textColor:
-                                                        ColorConst.primaryFont,
-                                                    fontWeight: FontWeight.bold,
-                                                    textAlign: TextAlign.end,
-                                                  )),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                    "Op",
-                                                    textColor:
-                                                        ColorConst.primaryFont,
-                                                    fontWeight: FontWeight.bold,
-                                                    textAlign: TextAlign.end,
-                                                  )),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: const CustomText(
+                                                  "Total",
+                                                  textColor:
+                                                      ColorConst.primaryFont,
+                                                  fontWeight: FontWeight.bold,
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: const CustomText(
+                                                  "Percent",
+                                                  textColor:
+                                                      ColorConst.primaryFont,
+                                                  fontWeight: FontWeight.bold,
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: const CustomText(
+                                                  "General",
+                                                  textColor:
+                                                      ColorConst.primaryFont,
+                                                  fontWeight: FontWeight.bold,
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: const CustomText(
+                                                  "Pharmacy",
+                                                  textColor:
+                                                      ColorConst.primaryFont,
+                                                  fontWeight: FontWeight.bold,
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: const CustomText(
+                                                  "Lab",
+                                                  textColor:
+                                                      ColorConst.primaryFont,
+                                                  fontWeight: FontWeight.bold,
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: const CustomText(
+                                                  "Op",
+                                                  textColor:
+                                                      ColorConst.primaryFont,
+                                                  fontWeight: FontWeight.bold,
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),
                                         Container(
                                           height: 20,
                                           color: ColorConst.secondaryColor,
-                                          margin: EdgeInsets.symmetric(
+                                          margin: const EdgeInsets.symmetric(
                                               horizontal: 5),
                                           padding: const EdgeInsets.symmetric(
                                               vertical: 0.0, horizontal: 4),
                                           child: Row(
                                             children: [
-                                              Container(
+                                              SizedBox(
                                                 width: screenWidth / 2.9,
-                                                child: Row(
+                                                child: const Row(
                                                   children: [
-                                                    Container(
-                                                        width: 20,
-                                                        child: CustomText("")),
+                                                    SizedBox(
+                                                      width: 20,
+                                                      child: CustomText(""),
+                                                    ),
                                                     Expanded(
-                                                        child: CustomText(
-                                                            "Total",
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold)),
+                                                      child: CustomText(
+                                                        "Total",
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
                                                   ],
                                                 ),
                                               ),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                      totalAmt
-                                                          .toStringAsFixed(0),
-                                                      textAlign: TextAlign.end,
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText("",
-                                                      textAlign: TextAlign.end,
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                      dataList
-                                                          .map((e) => e
-                                                              .doctorList!
-                                                              .fold(
-                                                                  0.0,
-                                                                  (sum, doctor) =>
-                                                                      sum +
-                                                                      (doctor.genAmount ??
-                                                                          0)))
-                                                          .toList()
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: CustomText(
+                                                  totalAmt.toStringAsFixed(0),
+                                                  textAlign: TextAlign.end,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: const CustomText(
+                                                  "",
+                                                  textAlign: TextAlign.end,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: CustomText(
+                                                  dataList
+                                                      .map((e) => e.doctorList!
                                                           .fold(
                                                               0.0,
-                                                              (sum, amt) =>
-                                                                  sum + amt)
-                                                          .toStringAsFixed(0),
-                                                      textAlign: TextAlign.end,
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                      dataList
-                                                          .map((e) => e
-                                                              .doctorList!
-                                                              .fold(
-                                                                  0.0,
-                                                                  (sum, doctor) =>
-                                                                      sum +
-                                                                      (doctor.phAmount ??
-                                                                          0)))
-                                                          .toList()
+                                                              (sum, doctor) =>
+                                                                  sum +
+                                                                  (doctor.genAmount ??
+                                                                      0)))
+                                                      .toList()
+                                                      .fold(
+                                                          0.0,
+                                                          (sum, amt) =>
+                                                              sum + amt)
+                                                      .toStringAsFixed(0),
+                                                  textAlign: TextAlign.end,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: CustomText(
+                                                  dataList
+                                                      .map((e) => e.doctorList!
                                                           .fold(
                                                               0.0,
-                                                              (sum, amt) =>
-                                                                  sum + amt)
-                                                          .toStringAsFixed(0),
-                                                      textAlign: TextAlign.end,
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                      dataList
-                                                          .map((e) => e
-                                                              .doctorList!
-                                                              .fold(
-                                                                  0.0,
-                                                                  (sum, doctor) =>
-                                                                      sum +
-                                                                      (doctor.labAmount ??
-                                                                          0)))
-                                                          .toList()
+                                                              (sum, doctor) =>
+                                                                  sum +
+                                                                  (doctor.phAmount ??
+                                                                      0)))
+                                                      .toList()
+                                                      .fold(
+                                                          0.0,
+                                                          (sum, amt) =>
+                                                              sum + amt)
+                                                      .toStringAsFixed(0),
+                                                  textAlign: TextAlign.end,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: CustomText(
+                                                  dataList
+                                                      .map((e) => e.doctorList!
                                                           .fold(
                                                               0.0,
-                                                              (sum, amt) =>
-                                                                  sum + amt)
-                                                          .toStringAsFixed(0),
-                                                      textAlign: TextAlign.end,
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                              Container(
-                                                  width: screenWidth / 10,
-                                                  child: CustomText(
-                                                      dataList
-                                                          .map((e) => e
-                                                              .doctorList!
-                                                              .fold(
-                                                                  0.0,
-                                                                  (sum, doctor) =>
-                                                                      sum +
-                                                                      (doctor.opAmount ??
-                                                                          0)))
-                                                          .toList()
-                                                          .fold(
-                                                              0.0,
-                                                              (sum, amt) =>
-                                                                  sum + amt)
-                                                          .toStringAsFixed(0),
-                                                      textAlign: TextAlign.end,
-                                                      fontWeight:
-                                                          FontWeight.bold)),
+                                                              (sum, doctor) =>
+                                                                  sum +
+                                                                  (doctor.labAmount ??
+                                                                      0)))
+                                                      .toList()
+                                                      .fold(
+                                                          0.0,
+                                                          (sum, amt) =>
+                                                              sum + amt)
+                                                      .toStringAsFixed(0),
+                                                  textAlign: TextAlign.end,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth / 10,
+                                                child: CustomText(
+                                                  dataList
+                                                      .map(
+                                                        (e) =>
+                                                            e.doctorList!.fold(
+                                                          0.0,
+                                                          (sum, doctor) =>
+                                                              sum +
+                                                              (doctor.opAmount ??
+                                                                  0),
+                                                        ),
+                                                      )
+                                                      .toList()
+                                                      .fold(
+                                                          0.0,
+                                                          (sum, amt) =>
+                                                              sum + amt)
+                                                      .toStringAsFixed(0),
+                                                  textAlign: TextAlign.end,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -330,331 +347,366 @@ class _IncomeByDepartmentScreenState extends State<IncomeByDepartmentScreen> {
                                     childCount: 1,
                                     (context, position) {
                                       return Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 0.0, vertical: 0),
-                                          child: ListView.builder(
-                                              shrinkWrap: true,
-                                              itemCount: dataList.length,
-                                              physics:
-                                                  NeverScrollableScrollPhysics(),
-                                              itemBuilder: (_context, index) {
-                                                DepartmentModel model =
-                                                    dataList[index];
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 0.0, vertical: 0),
+                                        child: ListView.builder(
+                                          shrinkWrap: true,
+                                          itemCount: dataList.length,
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
+                                          itemBuilder: (context, index) {
+                                            DepartmentModel model =
+                                                dataList[index];
 
-                                                return InkWell(
-                                                  onTap: () {
-                                                    dataList[index].isExpanded =
-                                                        !dataList[index]
-                                                            .isExpanded!;
-                                                    setState(() {});
-                                                  },
-                                                  child: Column(
-                                                    children: [
-                                                      Container(
-                                                        margin:
-                                                            EdgeInsets.all(2),
-                                                        color: model.isExpanded!
-                                                            ? Colors.grey[400]
-                                                            : Colors.white,
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal: 7.0,
-                                                                vertical: 7),
-                                                        child: Row(
-                                                          children: [
-                                                            Container(
-                                                              width:
-                                                                  screenWidth /
-                                                                      2.9,
-                                                              child: Row(
-                                                                children: [
-                                                                  Container(
-                                                                      width: 20,
-                                                                      child: CustomText((index +
-                                                                              1)
-                                                                          .toString())),
-                                                                  Expanded(
-                                                                      child:
-                                                                          CustomText(
-                                                                    model
-                                                                        .departmentName,
-                                                                    fontWeight: model.isExpanded!
-                                                                        ? FontWeight
-                                                                            .bold
-                                                                        : FontWeight
-                                                                            .normal,
-                                                                  )),
-                                                                ],
+                                            return InkWell(
+                                              onTap: () {
+                                                dataList[index].isExpanded =
+                                                    !dataList[index]
+                                                        .isExpanded!;
+                                                setState(() {});
+                                              },
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    margin: const EdgeInsets.all(2),
+                                                    color: model.isExpanded!
+                                                        ? Colors.grey[400]
+                                                        : Colors.white,
+                                                    padding: const EdgeInsets
+                                                        .symmetric(
+                                                        horizontal: 7.0,
+                                                        vertical: 7),
+                                                    child: Row(
+                                                      children: [
+                                                        SizedBox(
+                                                          width:
+                                                              screenWidth / 2.9,
+                                                          child: Row(
+                                                            children: [
+                                                              SizedBox(
+                                                                width: 20,
+                                                                child:
+                                                                    CustomText(
+                                                                  (index + 1)
+                                                                      .toString(),
+                                                                ),
                                                               ),
-                                                            ),
-                                                            Container(
-                                                                width:
-                                                                    screenWidth /
-                                                                        10,
+                                                              Expanded(
                                                                 child:
                                                                     CustomText(
-                                                                  (model
-                                                                      .doctorList!
-                                                                      .fold(
-                                                                          0.0,
-                                                                          (sum, doctor) => (sum +
-                                                                              doctor
-                                                                                  .amount!))
-                                                                      .toStringAsFixed(
-                                                                          0)),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .end,
+                                                                  model
+                                                                      .departmentName,
                                                                   fontWeight: model
                                                                           .isExpanded!
                                                                       ? FontWeight
                                                                           .bold
                                                                       : FontWeight
                                                                           .normal,
-                                                                )),
-                                                            Container(
-                                                                width:
-                                                                    screenWidth /
-                                                                        10,
-                                                                child:
-                                                                    CustomText(
-                                                                  ((model.doctorList!.fold(0.0, (sum, doctor) => (sum + doctor.amount!)) / totalAmt) *
-                                                                              100)
-                                                                          .toStringAsFixed(
-                                                                              2) +
-                                                                      "%",
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .end,
-                                                                  fontWeight: model
-                                                                          .isExpanded!
-                                                                      ? FontWeight
-                                                                          .bold
-                                                                      : FontWeight
-                                                                          .normal,
-                                                                )),
-                                                            Container(
-                                                                width:
-                                                                    screenWidth /
-                                                                        10,
-                                                                child:
-                                                                    CustomText(
-                                                                  (model
-                                                                      .doctorList!
-                                                                      .fold(
-                                                                          0.0,
-                                                                          (sum, doctor) => (sum +
-                                                                              doctor
-                                                                                  .genAmount!))
-                                                                      .toStringAsFixed(
-                                                                          0)),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .end,
-                                                                  fontWeight: model
-                                                                          .isExpanded!
-                                                                      ? FontWeight
-                                                                          .bold
-                                                                      : FontWeight
-                                                                          .normal,
-                                                                )),
-                                                            Container(
-                                                                width:
-                                                                    screenWidth /
-                                                                        10,
-                                                                child:
-                                                                    CustomText(
-                                                                  (model
-                                                                      .doctorList!
-                                                                      .fold(
-                                                                          0.0,
-                                                                          (sum, doctor) => (sum +
-                                                                              doctor
-                                                                                  .phAmount!))
-                                                                      .toStringAsFixed(
-                                                                          0)),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .end,
-                                                                  fontWeight: model
-                                                                          .isExpanded!
-                                                                      ? FontWeight
-                                                                          .bold
-                                                                      : FontWeight
-                                                                          .normal,
-                                                                )),
-                                                            Container(
-                                                                width:
-                                                                    screenWidth /
-                                                                        10,
-                                                                child:
-                                                                    CustomText(
-                                                                  (model
-                                                                      .doctorList!
-                                                                      .fold(
-                                                                          0.0,
-                                                                          (sum, doctor) => (sum +
-                                                                              doctor
-                                                                                  .labAmount!))
-                                                                      .toStringAsFixed(
-                                                                          0)),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .end,
-                                                                  fontWeight: model
-                                                                          .isExpanded!
-                                                                      ? FontWeight
-                                                                          .bold
-                                                                      : FontWeight
-                                                                          .normal,
-                                                                )),
-                                                            Container(
-                                                                width:
-                                                                    screenWidth /
-                                                                        10,
-                                                                child:
-                                                                    CustomText(
-                                                                  (model
-                                                                      .doctorList!
-                                                                      .fold(
-                                                                          0.0,
-                                                                          (sum, doctor) => (sum +
-                                                                              doctor
-                                                                                  .opAmount!))
-                                                                      .toStringAsFixed(
-                                                                          0)),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .end,
-                                                                  fontWeight: model
-                                                                          .isExpanded!
-                                                                      ? FontWeight
-                                                                          .bold
-                                                                      : FontWeight
-                                                                          .normal,
-                                                                )),
-                                                          ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
-                                                      ),
-                                                      if (model.isExpanded!)
-                                                        ListView.builder(
-                                                            shrinkWrap: true,
-                                                            itemCount: model
-                                                                .doctorList
-                                                                ?.length,
-                                                            physics:
-                                                                AlwaysScrollableScrollPhysics(),
-                                                            itemBuilder:
-                                                                (_context,
-                                                                    index) {
-                                                              DoctorModel e =
-                                                                  model.doctorList![
-                                                                      index];
-                                                              return InkWell(
-                                                                onTap: () {
-                                                                  Navigator
-                                                                      .push(
-                                                                    context,
-                                                                    MaterialPageRoute(
-                                                                        builder: (context) => DoctorAppointmentListScreen(
-                                                                            e.doctorName!,
-                                                                            e.id!)),
-                                                                  );
-                                                                },
-                                                                child: Padding(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                          .all(
-                                                                          2.0),
-                                                                  child: Flex(
-                                                                    direction: Axis
-                                                                        .horizontal,
+                                                        SizedBox(
+                                                          width:
+                                                              screenWidth / 10,
+                                                          child: CustomText(
+                                                            (model.doctorList!
+                                                                .fold(
+                                                                  0.0,
+                                                                  (sum, doctor) =>
+                                                                      (sum +
+                                                                          doctor
+                                                                              .amount!),
+                                                                )
+                                                                .toStringAsFixed(
+                                                                    0)),
+                                                            textAlign:
+                                                                TextAlign.end,
+                                                            fontWeight: model
+                                                                    .isExpanded!
+                                                                ? FontWeight
+                                                                    .bold
+                                                                : FontWeight
+                                                                    .normal,
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          width:
+                                                              screenWidth / 10,
+                                                          child: CustomText(
+                                                            "${((model.doctorList!.fold(0.0, (sum, doctor) => (sum + doctor.amount!)) /
+                                                                            totalAmt) *
+                                                                        100)
+                                                                    .toStringAsFixed(
+                                                                        2)}%",
+                                                            textAlign:
+                                                                TextAlign.end,
+                                                            fontWeight: model
+                                                                    .isExpanded!
+                                                                ? FontWeight
+                                                                    .bold
+                                                                : FontWeight
+                                                                    .normal,
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          width:
+                                                              screenWidth / 10,
+                                                          child: CustomText(
+                                                            (model.doctorList!
+                                                                .fold(
+                                                                  0.0,
+                                                                  (sum, doctor) =>
+                                                                      (sum +
+                                                                          doctor
+                                                                              .genAmount!),
+                                                                )
+                                                                .toStringAsFixed(
+                                                                    0)),
+                                                            textAlign:
+                                                                TextAlign.end,
+                                                            fontWeight: model
+                                                                    .isExpanded!
+                                                                ? FontWeight
+                                                                    .bold
+                                                                : FontWeight
+                                                                    .normal,
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          width:
+                                                              screenWidth / 10,
+                                                          child: CustomText(
+                                                            (model.doctorList!
+                                                                .fold(
+                                                                    0.0,
+                                                                    (sum, doctor) =>
+                                                                        (sum +
+                                                                            doctor
+                                                                                .phAmount!))
+                                                                .toStringAsFixed(
+                                                                    0)),
+                                                            textAlign:
+                                                                TextAlign.end,
+                                                            fontWeight: model
+                                                                    .isExpanded!
+                                                                ? FontWeight
+                                                                    .bold
+                                                                : FontWeight
+                                                                    .normal,
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          width:
+                                                              screenWidth / 10,
+                                                          child: CustomText(
+                                                            (model.doctorList!
+                                                                .fold(
+                                                                    0.0,
+                                                                    (sum, doctor) =>
+                                                                        (sum +
+                                                                            doctor
+                                                                                .labAmount!))
+                                                                .toStringAsFixed(
+                                                                    0)),
+                                                            textAlign:
+                                                                TextAlign.end,
+                                                            fontWeight: model
+                                                                    .isExpanded!
+                                                                ? FontWeight
+                                                                    .bold
+                                                                : FontWeight
+                                                                    .normal,
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          width:
+                                                              screenWidth / 10,
+                                                          child: CustomText(
+                                                            (model.doctorList!
+                                                                .fold(
+                                                                    0.0,
+                                                                    (sum, doctor) =>
+                                                                        (sum +
+                                                                            doctor
+                                                                                .opAmount!))
+                                                                .toStringAsFixed(
+                                                                    0)),
+                                                            textAlign:
+                                                                TextAlign.end,
+                                                            fontWeight: model
+                                                                    .isExpanded!
+                                                                ? FontWeight
+                                                                    .bold
+                                                                : FontWeight
+                                                                    .normal,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  if (model.isExpanded!)
+                                                    ListView.builder(
+                                                      shrinkWrap: true,
+                                                      itemCount: model
+                                                          .doctorList?.length,
+                                                      physics:
+                                                          const AlwaysScrollableScrollPhysics(),
+                                                      itemBuilder:
+                                                          (context, index) {
+                                                        DoctorModel e = model
+                                                            .doctorList![index];
+                                                        return InkWell(
+                                                          onTap: () {
+                                                            Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        DoctorAppointmentListScreen(
+                                                                  e.doctorName!,
+                                                                  e.id!,
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(2.0),
+                                                            child: Flex(
+                                                              direction: Axis
+                                                                  .horizontal,
+                                                              children: [
+                                                                Container(
+                                                                  width:
+                                                                      screenWidth /
+                                                                          2.8,
+                                                                  padding: const EdgeInsets
+                                                                      .symmetric(
+                                                                      horizontal:
+                                                                          7.0,
+                                                                      vertical:
+                                                                          2),
+                                                                  child: Row(
                                                                     children: [
                                                                       Container(
-                                                                        width: screenWidth /
-                                                                            2.8,
-                                                                        padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                            horizontal:
-                                                                                7.0,
-                                                                            vertical:
-                                                                                2),
+                                                                          width:
+                                                                              20),
+                                                                      SizedBox(
+                                                                        width:
+                                                                            15,
                                                                         child:
-                                                                            Row(
-                                                                          children: [
-                                                                            Container(width: 20),
-                                                                            Container(
-                                                                                width: 15,
-                                                                                child: CustomText((index + 1).toString())),
-                                                                            Expanded(child: CustomText(e.doctorName)),
-                                                                          ],
+                                                                            CustomText(
+                                                                          (index + 1)
+                                                                              .toString(),
                                                                         ),
                                                                       ),
-                                                                      Container(
-                                                                          width: screenWidth /
-                                                                              10,
-                                                                          child:
-                                                                              CustomText(
-                                                                            e.amount.toString(),
-                                                                            textAlign:
-                                                                                TextAlign.right,
-                                                                          )),
-                                                                      Container(
-                                                                          width: screenWidth /
-                                                                              10,
-                                                                          child:
-                                                                              CustomText(
-                                                                            (((e.amount! / totalAmt) * 100)).toStringAsFixed(2) +
-                                                                                "%",
-                                                                            textAlign:
-                                                                                TextAlign.right,
-                                                                          )),
-                                                                      Container(
-                                                                          width: screenWidth /
-                                                                              10,
-                                                                          child:
-                                                                              CustomText(
-                                                                            e.genAmount!.toStringAsFixed(2),
-                                                                            textAlign:
-                                                                                TextAlign.right,
-                                                                          )),
-                                                                      Container(
-                                                                          width: screenWidth /
-                                                                              10,
-                                                                          child:
-                                                                              CustomText(
-                                                                            e.phAmount!.toStringAsFixed(2),
-                                                                            textAlign:
-                                                                                TextAlign.right,
-                                                                          )),
-                                                                      Container(
-                                                                          width: screenWidth /
-                                                                              10,
-                                                                          child:
-                                                                              CustomText(
-                                                                            e.labAmount!.toStringAsFixed(2),
-                                                                            textAlign:
-                                                                                TextAlign.right,
-                                                                          )),
-                                                                      Container(
-                                                                          width: screenWidth /
-                                                                              10,
-                                                                          child:
-                                                                              CustomText(
-                                                                            e.opAmount!.toStringAsFixed(2),
-                                                                            textAlign:
-                                                                                TextAlign.right,
-                                                                          )),
+                                                                      Expanded(
+                                                                        child:
+                                                                            CustomText(
+                                                                          e.doctorName,
+                                                                        ),
+                                                                      ),
                                                                     ],
                                                                   ),
                                                                 ),
-                                                              );
-                                                            })
-                                                    ],
-                                                  ),
-                                                );
-                                              }));
+                                                                SizedBox(
+                                                                  width:
+                                                                      screenWidth /
+                                                                          10,
+                                                                  child:
+                                                                      CustomText(
+                                                                    e.amount
+                                                                        .toString(),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .right,
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                  width:
+                                                                      screenWidth /
+                                                                          10,
+                                                                  child:
+                                                                      CustomText(
+                                                                    "${(((e.amount! / totalAmt) *
+                                                                                100))
+                                                                            .toStringAsFixed(2)}%",
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .right,
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                  width:
+                                                                      screenWidth /
+                                                                          10,
+                                                                  child:
+                                                                      CustomText(
+                                                                    e.genAmount!
+                                                                        .toStringAsFixed(
+                                                                            2),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .right,
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                  width:
+                                                                      screenWidth /
+                                                                          10,
+                                                                  child:
+                                                                      CustomText(
+                                                                    e.phAmount!
+                                                                        .toStringAsFixed(
+                                                                            2),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .right,
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                  width:
+                                                                      screenWidth /
+                                                                          10,
+                                                                  child:
+                                                                      CustomText(
+                                                                    e.labAmount!
+                                                                        .toStringAsFixed(
+                                                                            2),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .right,
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                  width:
+                                                                      screenWidth /
+                                                                          10,
+                                                                  child:
+                                                                      CustomText(
+                                                                    e.opAmount!
+                                                                        .toStringAsFixed(
+                                                                            2),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .right,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      );
                                     },
                                   ),
                                 ),
@@ -677,7 +729,7 @@ class _IncomeByDepartmentScreenState extends State<IncomeByDepartmentScreen> {
         scrollDirection: Axis.horizontal,
         itemCount: model.doctorList?.length,
         // physics: AlwaysScrollableScrollPhysics(),
-        itemBuilder: (_context, index) {
+        itemBuilder: (context, index) {
           DoctorModel doctorModel = model.doctorList![index];
           return CustomText(doctorModel.doctorName);
         });

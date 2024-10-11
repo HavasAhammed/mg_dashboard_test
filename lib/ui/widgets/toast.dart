@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Toast {
-  static final int lengthShort = 1;
-  static final int lengthLong = 2;
-  static final int bottom = 0;
-  static final int center = 1;
-  static final int top = 2;
+  static const int lengthShort = 1;
+  static const int lengthLong = 2;
+  static const int bottom = 0;
+  static const int center = 1;
+  static const int top = 2;
 
   static void show(String msg, BuildContext context,
       {int? duration = 1,
@@ -23,7 +23,7 @@ class Toast {
 }
 
 class ToastView {
-  static final ToastView _singleton = new ToastView._internal();
+  static final ToastView _singleton = ToastView._internal();
 
   factory ToastView() {
     return _singleton;
@@ -47,9 +47,9 @@ class ToastView {
       bool? rootNavigator) async {
     overlayState = Overlay.of(context, rootOverlay: rootNavigator ?? false);
 
-    _overlayEntry = new OverlayEntry(
+    _overlayEntry = OverlayEntry(
       builder: (BuildContext context) => ToastWidget(
-          widget: Container(
+          widget: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Container(
                 alignment: Alignment.center,
@@ -60,8 +60,8 @@ class ToastView {
                     borderRadius: BorderRadius.circular(backgroundRadius),
                     border: border,
                   ),
-                  margin: EdgeInsets.symmetric(horizontal: 20),
-                  padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
                   child: Text(msg, softWrap: true, style: textStyle),
                 )),
           ),
@@ -69,8 +69,8 @@ class ToastView {
     );
     _isVisible = true;
     overlayState!.insert(_overlayEntry!);
-    await new Future.delayed(
-        Duration(seconds: duration == null ? Toast.lengthShort : duration));
+    await Future.delayed(
+        Duration(seconds: duration ?? Toast.lengthShort));
     dismiss();
   }
 
@@ -84,18 +84,18 @@ class ToastView {
 }
 
 class ToastWidget extends StatelessWidget {
-  ToastWidget({
-    Key? key,
+  const ToastWidget({
+    super.key,
     required this.widget,
     required this.gravity,
-  }) : super(key: key);
+  });
 
   final Widget widget;
   final int? gravity;
 
   @override
   Widget build(BuildContext context) {
-    return new Positioned(
+    return Positioned(
         top: gravity == 2 ? MediaQuery.of(context).viewInsets.top + 50 : null,
         bottom:
             gravity == 0 ? MediaQuery.of(context).viewInsets.bottom + 50 : null,

@@ -23,7 +23,6 @@ class _RoomListScreenState extends State<RoomListScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData(context);
   }
@@ -166,10 +165,11 @@ class _RoomListScreenState extends State<RoomListScreen> {
                                                 ),
                                               ),
                                               Expanded(
-                                                  child: CustomText(
-                                                model.id,
-                                                textAlign: TextAlign.center,
-                                              )),
+                                                child: CustomText(
+                                                  model.id,
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),

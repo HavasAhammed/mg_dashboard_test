@@ -170,10 +170,11 @@ class _IpCountScreenState extends State<IpCountScreen> {
                                                 ),
                                               ),
                                               Expanded(
-                                                  child: CustomText(
-                                                model.roomNo,
-                                                textAlign: TextAlign.start,
-                                              )),
+                                                child: CustomText(
+                                                  model.roomNo,
+                                                  textAlign: TextAlign.start,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),

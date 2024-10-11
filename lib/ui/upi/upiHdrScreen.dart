@@ -39,208 +39,214 @@ class _UpiHdrScreenState extends State<UpiHdrScreen> {
         title: Row(
           children: [
             Expanded(
-                child: CustomText(
-              "Upi Header",
-              fontSize: appBarTextFont,
-            )),
+              child: CustomText(
+                "Upi Header",
+                fontSize: appBarTextFont,
+              ),
+            ),
             InkWell(
-                onTap: _toggleContainer,
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(Icons.filter_alt_outlined),
-                ))
+              onTap: _toggleContainer,
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Icons.filter_alt_outlined),
+              ),
+            ),
           ],
         ),
       ),
       backgroundColor: ColorConst.secondaryColor,
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              width: context.getWidth(),
-              child: FilterWidget(
-                isVisible: _isVisible,
-                onSelected: () {
-                  getData(context);
-                },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                width: context.getWidth(),
+                child: FilterWidget(
+                  isVisible: _isVisible,
+                  onSelected: () {
+                    getData(context);
+                  },
+                ),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height - 130,
-              // width: screenWidth,
-              child: CustomScrollView(
-                slivers: [
-                  SliverMainAxisGroup(
-                    slivers: [
-                      SliverPersistentHeader(
-                        pinned: true, // Keeps the header pinned at the top
-                        delegate: SliverAppBarDelegate(
-                          minHeight: 60.0,
-                          maxHeight: 60.0,
-                          child: Column(
-                            children: [
-                              Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 2),
-                                padding: const EdgeInsets.all(8.0),
-                                color: ColorConst.primaryColor,
-                                child: const Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 45,
-                                      child: CustomText(
-                                        "Sl",
-                                        textColor: ColorConst.primaryFont,
-                                        fontWeight: FontWeight.bold,
+              SizedBox(
+                height: MediaQuery.of(context).size.height - 130,
+                // width: screenWidth,
+                child: CustomScrollView(
+                  slivers: [
+                    SliverMainAxisGroup(
+                      slivers: [
+                        SliverPersistentHeader(
+                          pinned: true, // Keeps the header pinned at the top
+                          delegate: SliverAppBarDelegate(
+                            minHeight: 60.0,
+                            maxHeight: 60.0,
+                            child: Column(
+                              children: [
+                                Container(
+                                  margin:
+                                      const EdgeInsets.symmetric(horizontal: 2),
+                                  padding: const EdgeInsets.all(8.0),
+                                  color: ColorConst.primaryColor,
+                                  child: const Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 45,
+                                        child: CustomText(
+                                          "Sl",
+                                          textColor: ColorConst.primaryFont,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                    Expanded(
-                                      flex: 2,
-                                      child: CustomText(
-                                        "Name",
-                                        textColor: ColorConst.primaryFont,
-                                        fontWeight: FontWeight.bold,
-                                        textAlign: TextAlign.start,
+                                      Expanded(
+                                        flex: 2,
+                                        child: CustomText(
+                                          "Name",
+                                          textColor: ColorConst.primaryFont,
+                                          fontWeight: FontWeight.bold,
+                                          textAlign: TextAlign.start,
+                                        ),
                                       ),
-                                    ),
-                                    Expanded(
-                                      child: CustomText(
-                                        "Amount",
-                                        textColor: ColorConst.primaryFont,
-                                        fontWeight: FontWeight.bold,
-                                        textAlign: TextAlign.end,
+                                      Expanded(
+                                        child: CustomText(
+                                          "Amount",
+                                          textColor: ColorConst.primaryFont,
+                                          fontWeight: FontWeight.bold,
+                                          textAlign: TextAlign.end,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 2),
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 8.0, vertical: 4),
-                                color: ColorConst.secondaryColor,
-                                child: Row(
-                                  children: [
-                                    const SizedBox(
-                                      width: 45,
-                                      child: CustomText(
-                                        "",
-                                        textColor: ColorConst.primaryFont,
+                                Container(
+                                  margin:
+                                      const EdgeInsets.symmetric(horizontal: 2),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0, vertical: 4),
+                                  color: ColorConst.secondaryColor,
+                                  child: Row(
+                                    children: [
+                                      const SizedBox(
+                                        width: 45,
+                                        child: CustomText(
+                                          "",
+                                          textColor: ColorConst.primaryFont,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      const Expanded(
+                                        child: CustomText(
+                                          "Total",
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      CustomText(
+                                        dataList
+                                            .fold(
+                                                0.0,
+                                                (sum, doctor) =>
+                                                    sum + (doctor.amount ?? 0))
+                                            .toStringAsFixed(0),
                                         fontWeight: FontWeight.bold,
                                       ),
-                                    ),
-                                    const Expanded(
-                                      child: CustomText(
-                                        "Total",
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    CustomText(
-                                      dataList
-                                          .fold(
-                                              0.0,
-                                              (sum, doctor) =>
-                                                  sum + (doctor.amount ?? 0))
-                                          .toStringAsFixed(0),
-                                      fontWeight: FontWeight.bold,
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          childCount: 1,
-                          (context, position) {
-                            return isLoading
-                                ? Container(
-                                    padding: const EdgeInsets.all(190),
-                                    child: Center(child: LoadingCircle()),
-                                  )
-                                : dataList.isNotEmpty
-                                    ? ListView.builder(
-                                        shrinkWrap: true,
-                                        itemCount: dataList.length,
-                                        physics:
-                                            const NeverScrollableScrollPhysics(),
-                                        itemBuilder: (context, index) {
-                                          CashHdrModel model = dataList[index];
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            childCount: 1,
+                            (context, position) {
+                              return isLoading
+                                  ? Container(
+                                      padding: const EdgeInsets.all(190),
+                                      child: Center(child: LoadingCircle()),
+                                    )
+                                  : dataList.isNotEmpty
+                                      ? ListView.builder(
+                                          shrinkWrap: true,
+                                          itemCount: dataList.length,
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
+                                          itemBuilder: (context, index) {
+                                            CashHdrModel model =
+                                                dataList[index];
 
-                                          return InkWell(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      CashDtlScreen(
-                                                    model.idAccount!,
-                                                    model.account!,
-                                                    Urls.getTotalUpiDetails,
+                                            return InkWell(
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        CashDtlScreen(
+                                                      model.idAccount!,
+                                                      model.account!,
+                                                      Urls.getTotalUpiDetails,
+                                                    ),
                                                   ),
+                                                );
+                                              },
+                                              child: Container(
+                                                color: Colors.white,
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 5,
+                                                        vertical: 2),
+                                                padding:
+                                                    const EdgeInsets.all(8),
+                                                child: Row(
+                                                  children: [
+                                                    SizedBox(
+                                                      width: 45,
+                                                      child: CustomText(
+                                                        "${index + 1}) ",
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      flex: 2,
+                                                      child: CustomText(
+                                                        model.account,
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: CustomText(
+                                                        model.amount!
+                                                            .toStringAsFixed(0),
+                                                        textAlign:
+                                                            TextAlign.end,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              );
-                                            },
-                                            child: Container(
-                                              color: Colors.white,
-                                              margin:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 5,
-                                                      vertical: 2),
-                                              padding: const EdgeInsets.all(8),
-                                              child: Row(
-                                                children: [
-                                                  SizedBox(
-                                                    width: 45,
-                                                    child: CustomText(
-                                                      "${index + 1}) ",
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    flex: 2,
-                                                    child: CustomText(
-                                                      model.account,
-                                                      textAlign:
-                                                          TextAlign.start,
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: CustomText(
-                                                      model.amount!
-                                                          .toStringAsFixed(0),
-                                                      textAlign: TextAlign.end,
-                                                    ),
-                                                  ),
-                                                ],
                                               ),
+                                            );
+                                          },
+                                        )
+                                      : const Center(
+                                          child: Padding(
+                                            padding: EdgeInsets.only(top: 200),
+                                            child: CustomText(
+                                              'No data to show!',
+                                              textColor: ColorConst.primaryText,
                                             ),
-                                          );
-                                        },
-                                      )
-                                    : const Center(
-                                        child: Padding(
-                                          padding: EdgeInsets.only(top: 200),
-                                          child: CustomText(
-                                            'No data to show!',
-                                            textColor: ColorConst.primaryText,
                                           ),
-                                        ),
-                                      );
-                          },
+                                        );
+                            },
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 

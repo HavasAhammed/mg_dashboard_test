@@ -167,10 +167,11 @@ class _CurrentIpScreenState extends State<CurrentIpScreen> {
                                                 ),
                                               ),
                                               Expanded(
-                                                  child: CustomText(
-                                                model.roomNo,
-                                                textAlign: TextAlign.start,
-                                              )),
+                                                child: CustomText(
+                                                  model.roomNo,
+                                                  textAlign: TextAlign.start,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),

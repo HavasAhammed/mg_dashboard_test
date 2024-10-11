@@ -26,7 +26,6 @@ class _PharmacyPurchaseScreenState extends State<PharmacyPurchaseScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData(context);
   }
@@ -209,11 +208,12 @@ class _PharmacyPurchaseScreenState extends State<PharmacyPurchaseScreen> {
                                                 ),
                                               ),
                                               Expanded(
-                                                  child: CustomText(
-                                                model.amount!
-                                                    .toStringAsFixed(0),
-                                                textAlign: TextAlign.end,
-                                              )),
+                                                child: CustomText(
+                                                  model.amount!
+                                                      .toStringAsFixed(0),
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),

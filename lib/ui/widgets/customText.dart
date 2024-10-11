@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class CustomText extends StatelessWidget {
   const CustomText(
     this.text, {
-    Key? key,
+    super.key,
+    // Key? key,
     this.fontSize,
     this.textAlign,
     this.textColor,
@@ -31,10 +32,11 @@ class CustomText extends StatelessWidget {
       overflow: overflow,
       softWrap: true,
       style: TextStyle(
-          fontSize: fontSize ?? 12,
-          color: textColor,
-          fontWeight: fontWeight,
-          decoration: textDecoration),
+        fontSize: fontSize ?? 12,
+        color: textColor,
+        fontWeight: fontWeight,
+        decoration: textDecoration,
+      ),
     );
   }
 }

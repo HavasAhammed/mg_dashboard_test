@@ -26,7 +26,6 @@ class _ReviewedPatientsScreenState extends State<ReviewedPatientsScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData(context);
   }
@@ -207,11 +206,12 @@ class _ReviewedPatientsScreenState extends State<ReviewedPatientsScreen> {
                                                 ),
                                               ),
                                               Expanded(
-                                                  child: CustomText(
-                                                model.amount!
-                                                    .toStringAsFixed(0),
-                                                textAlign: TextAlign.end,
-                                              ),),
+                                                child: CustomText(
+                                                  model.amount!
+                                                      .toStringAsFixed(0),
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),

@@ -26,7 +26,6 @@ class _PaidPatientsScreenState extends State<PaidPatientsScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData(context);
   }
@@ -219,11 +218,12 @@ class _PaidPatientsScreenState extends State<PaidPatientsScreen> {
                                                 ),
                                               ),
                                               Expanded(
-                                                  child: CustomText(
-                                                model.amount!
-                                                    .toStringAsFixed(0),
-                                                textAlign: TextAlign.end,
-                                              )),
+                                                child: CustomText(
+                                                  model.amount!
+                                                      .toStringAsFixed(0),
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),

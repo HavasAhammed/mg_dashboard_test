@@ -54,7 +54,7 @@ class _DoctorAppointmentListScreenState
                 padding: EdgeInsets.all(8.0),
                 child: Icon(Icons.filter_alt_outlined),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -87,7 +87,8 @@ class _DoctorAppointmentListScreenState
                             child: Column(
                               children: [
                                 Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                                  margin:
+                                      const EdgeInsets.symmetric(horizontal: 2),
                                   padding: const EdgeInsets.all(8.0),
                                   color: ColorConst.primaryColor,
                                   child: const Row(
@@ -129,7 +130,8 @@ class _DoctorAppointmentListScreenState
                                   ),
                                 ),
                                 Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                                  margin:
+                                      const EdgeInsets.symmetric(horizontal: 2),
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 8.0, vertical: 4),
                                   color: ColorConst.secondaryColor,
@@ -179,7 +181,8 @@ class _DoctorAppointmentListScreenState
                                   : ListView.builder(
                                       shrinkWrap: true,
                                       itemCount: dataList.length,
-                                      physics: const NeverScrollableScrollPhysics(),
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
                                       itemBuilder: (context, index) {
                                         AppointmentsModel model =
                                             dataList[index];
@@ -193,8 +196,10 @@ class _DoctorAppointmentListScreenState
                                             children: [
                                               Container(
                                                 color: Colors.white,
-                                                margin: const EdgeInsets.symmetric(
-                                                    horizontal: 5, vertical: 2),
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 5,
+                                                        vertical: 2),
                                                 padding:
                                                     const EdgeInsets.all(8),
                                                 child: Row(

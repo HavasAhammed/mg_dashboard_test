@@ -26,7 +26,6 @@ class _ExpiryMedicineScreenState extends State<ExpiryMedicineScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData(context);
   }
