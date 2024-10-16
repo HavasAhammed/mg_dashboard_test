@@ -1,4 +1,8 @@
+import 'package:hive/hive.dart';
+
 class Urls {
+  static final box = Hive.box('settingsBox');
+
   static dynamic getHeaders() {
     var ss = {
       'Content-Type': 'application/json',
@@ -11,7 +15,9 @@ class Urls {
   static dynamic getBaseUrl() {
     // return HiveDb.getUrl() + "apis/api/";
     // return 'https://app.gotoken.in/dashboard/api/';
-    return 'https://app.gotoken.in/dashboardhnckpba/api/';
+    // return 'https://app.gotoken.in/dashboardhnckpba/api/';
+    return box.get('baseUrl',
+        defaultValue: 'https://app.gotoken.in/dashboard/api/');
   }
 
   static String getDashboardData = "${getBaseUrl()}dashboard/getDashBoardData";
@@ -39,19 +45,19 @@ class Urls {
   static String getTotalOpCount = "${getBaseUrl()}dashboard/getTotalOp";
   static String getTotalOpCountDetails =
       "${getBaseUrl()}dashboard/getTotalOpDetails";
-  static String getPaidPatients= "${getBaseUrl()}dashboard/doctors/paid";
-  static String getReviewedPatients= "${getBaseUrl()}dashboard/doctors/reviewed";
-  static String getPharmacyPurchase= "${getBaseUrl()}dashboard/purchase";
-  static String getExpiryMedicine= "${getBaseUrl()}dashboard/ExpiryList";
-  static String getBornCount= "${getBaseUrl()}dashboard/GetBorn";
-  static String getRoomList= "${getBaseUrl()}dashboard/RoomList";
-  static String getDoctorList= "${getBaseUrl()}dashboard/DoctorList";
-  static String getBooking= "${getBaseUrl()}dashboard/doctors";
-  static String getCurrentIp= "${getBaseUrl()}dashboard/getTotalIP";
-  static String getIpCount= "${getBaseUrl()}dashboard/getAllIP";
-  static String getLeaveDoctors= "${getBaseUrl()}dashboard/doctors/leave";
-  static String getAvailableDoctors= "${getBaseUrl()}dashboard/doctors/present";
-  static String getAmount= "${getBaseUrl()}dashboard/getTotalIncomeDetails";
-
-
+  static String getPaidPatients = "${getBaseUrl()}dashboard/doctors/paid";
+  static String getReviewedPatients =
+      "${getBaseUrl()}dashboard/doctors/reviewed";
+  static String getPharmacyPurchase = "${getBaseUrl()}dashboard/purchase";
+  static String getExpiryMedicine = "${getBaseUrl()}dashboard/ExpiryList";
+  static String getBornCount = "${getBaseUrl()}dashboard/GetBorn";
+  static String getRoomList = "${getBaseUrl()}dashboard/RoomList";
+  static String getDoctorList = "${getBaseUrl()}dashboard/DoctorList";
+  static String getBooking = "${getBaseUrl()}dashboard/doctors";
+  static String getCurrentIp = "${getBaseUrl()}dashboard/getTotalIP";
+  static String getIpCount = "${getBaseUrl()}dashboard/getAllIP";
+  static String getLeaveDoctors = "${getBaseUrl()}dashboard/doctors/leave";
+  static String getAvailableDoctors =
+      "${getBaseUrl()}dashboard/doctors/present";
+  static String getAmount = "${getBaseUrl()}dashboard/getTotalIncomeDetails";
 }

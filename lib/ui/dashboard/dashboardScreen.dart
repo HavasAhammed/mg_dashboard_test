@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hive/hive.dart';
 import 'package:mg_dashboard/models/DashboardModel.dart';
 import 'package:mg_dashboard/provider/appProvider.dart';
 import 'package:mg_dashboard/ui/advance/advanceAmountScreen.dart';
@@ -41,6 +42,8 @@ class Dashboardscreen extends StatefulWidget {
 }
 
 class _DashboardscreenState extends State<Dashboardscreen> {
+  final box = Hive.box('settingsBox');
+  String? storedUrl;
   DashboardModel dashboardModel = DashboardModel();
   int _current = 0;
   final CarouselSliderController sliderController = CarouselSliderController();
@@ -50,8 +53,8 @@ class _DashboardscreenState extends State<Dashboardscreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    storedUrl = box.get('baseUrl', defaultValue: 'No URL stored');
     getDashboardData(context);
   }
 
@@ -75,69 +78,75 @@ class _DashboardscreenState extends State<Dashboardscreen> {
             const Icon(Icons.filter_alt_outlined),
             const Spacer(),
             InkWell(
-                onTap: _toggleContainer,
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(Icons.filter_alt_outlined),
-                ))
+              onTap: _toggleContainer,
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Icons.filter_alt_outlined),
+              ),
+            ),
           ],
         ),
       ),
       backgroundColor: ColorConst.secondaryColor,
       body: SafeArea(
-          child: RefreshIndicator(
-        onRefresh: () => getDashboardData(context),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              FilterWidget(
-                isVisible: _isVisible,
-                onSelected: () {
-                  getDashboardData(context);
-                },
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
-                child: CustomText(
-                  "Abc Hospital",
-                  fontWeight: FontWeight.bold,
-                  textColor: Colors.black,
+        child: RefreshIndicator(
+          onRefresh: () => getDashboardData(context),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                FilterWidget(
+                  isVisible: _isVisible,
+                  onSelected: () {
+                    getDashboardData(context);
+                  },
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: CustomText(
-                  "Orchid Changaramkulam, Thrissur 679574",
-                  fontWeight: FontWeight.bold,
-                  textColor: Colors.grey,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Skeletonizer(
-                  enabled: isLoadingDashboardData,
-                  child: CarouselSlider(
-                    carouselController: sliderController,
-                    options: CarouselOptions(
-                        aspectRatio: 1.9,
-                        viewportFraction: 1,
-                        onPageChanged: (index, reason) {
-                          setState(() {
-                            _current = index;
-                          });
-                        }),
-                    items: [
-                      firstGrid(context),
-                      secondGrid(),
-                      thirdGrid(),
-                      fourthGrid(),
-                      fifthGrid(),
-                      sixthGrid(),
-                    ],
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
+                  child: Center(
+                    child: CustomText(
+                      "Abc Hospital",
+                      fontWeight: FontWeight.bold,
+                      textColor: Colors.black,
+                    ),
                   ),
                 ),
-              ),
-              Row(
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Center(
+                    child: CustomText(
+                      "Orchid Changaramkulam, Thrissur 679574",
+                      fontWeight: FontWeight.bold,
+                      textColor: Colors.grey,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Skeletonizer(
+                    enabled: isLoadingDashboardData,
+                    child: CarouselSlider(
+                      carouselController: sliderController,
+                      options: CarouselOptions(
+                          aspectRatio: 1.9,
+                          viewportFraction: 1,
+                          onPageChanged: (index, reason) {
+                            setState(() {
+                              _current = index;
+                            });
+                          }),
+                      items: [
+                        firstGrid(context),
+                        secondGrid(),
+                        thirdGrid(),
+                        fourthGrid(),
+                        fifthGrid(),
+                        sixthGrid(),
+                      ],
+                    ),
+                  ),
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [1, 2, 3, 4, 5, 6].asMap().entries.map((entry) {
                     return GestureDetector(
@@ -148,20 +157,40 @@ class _DashboardscreenState extends State<Dashboardscreen> {
                         margin: const EdgeInsets.symmetric(
                             vertical: 8.0, horizontal: 4.0),
                         decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color:
-                                (Theme.of(context).brightness == Brightness.dark
-                                        ? Colors.white
-                                        : Colors.black)
-                                    .withOpacity(
-                                        _current == entry.key ? 0.5 : 0.1)),
+                          shape: BoxShape.circle,
+                          color: (Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Colors.white
+                                  : Colors.black)
+                              .withOpacity(_current == entry.key ? 0.5 : 0.1),
+                        ),
                       ),
                     );
-                  }).toList()),
-            ],
+                  }).toList(),
+                ),
+                const SizedBox(height: 20),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: CustomText(
+                    'URL :',
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Padding(        
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    storedUrl ?? '',
+                  ),
+                )
+              ],
+            ),
           ),
         ),
-      )),
+      ),
     );
   }
 
