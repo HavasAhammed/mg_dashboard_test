@@ -168,24 +168,24 @@ class _DashboardscreenState extends State<Dashboardscreen> {
                     );
                   }).toList(),
                 ),
-                const SizedBox(height: 20),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: CustomText(
-                    'URL :',
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Padding(        
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    storedUrl ?? '',
-                  ),
-                )
+                // const SizedBox(height: 20),
+                // const Padding(
+                //   padding: EdgeInsets.symmetric(horizontal: 16),
+                //   child: CustomText(
+                //     'URL :',
+                //     fontSize: 18,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 8,
+                // ),
+                // Padding(        
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: Text(
+                //     storedUrl ?? '',
+                //   ),
+                // )
               ],
             ),
           ),
