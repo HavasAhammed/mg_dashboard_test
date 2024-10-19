@@ -37,7 +37,7 @@ static String getHospitalDetails = "${getBaseUrl()}/api/dashboard/hospital/detai
   static String getTotalCard = "${getBaseUrl()}/api/dashboard/getTotalCard";
   static String getTotalCardDetails =
       "${getBaseUrl()}/api/dashboard/getTotalCardDetails";
-  static String getTotalCredit = "${getBaseUrl()}/api/dashboard/getTotalCredit";
+  // static String getTotalCredit = "${getBaseUrl()}/api/dashboard/getTotalCredit";
   static String getTotalCreditDetails =
       "${getBaseUrl()}/api/dashboard/getTotalCreditDetails";
   static String getTotalOp = "${getBaseUrl()}/api/dashboard/getTotalOp";
@@ -62,4 +62,6 @@ static String getHospitalDetails = "${getBaseUrl()}/api/dashboard/hospital/detai
       "${getBaseUrl()}/api/dashboard/doctors/present";
   static String getAmount =
       "${getBaseUrl()}/api/dashboard/getTotalIncomeDetails";
+  static String getTotalCredit = "${getBaseUrl()}/api/dashboard/credit-list";
+
 }

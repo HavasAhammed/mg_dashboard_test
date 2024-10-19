@@ -514,4 +514,25 @@ class DashboardRepo {
       return (true, list);
     }
   }
+
+  static Future<(bool isError, List<CashHdrModel> list)> getTotalCredit(
+      BuildContext context) async {
+    ResponseModel response = await getApiData(
+      Urls.getTotalCredit,
+    );
+    List<CashHdrModel> list = [];
+    try {
+      if (response.isError) {
+        Toast.show(response.errorMessage ?? "", context, duration: 3);
+        return (true, list);
+      } else {
+        list = List<CashHdrModel>.from(response.responseObject['data']
+            .map((x) => CashHdrModel.fromJson(x)));
+        return (false, list);
+      }
+    } catch (_) {
+      Toast.show(_.toString(), context, duration: 3);
+      return (true, list);
+    }
+  }
 }

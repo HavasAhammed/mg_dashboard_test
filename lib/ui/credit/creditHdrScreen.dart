@@ -1,10 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:mg_dashboard/data/urls.dart';
 import 'package:mg_dashboard/models/cashHdrModel.dart';
-import 'package:mg_dashboard/provider/appProvider.dart';
-import 'package:mg_dashboard/ui/cash/cashDtlScreen.dart';
 import 'package:mg_dashboard/ui/dashboard/DashboardRepo/DashboardRepo.dart';
 import 'package:mg_dashboard/ui/dashboard/filterWidget.dart';
 import 'package:mg_dashboard/ui/widgets/customText.dart';
@@ -174,19 +169,19 @@ class _CreditHdrScreenState extends State<CreditHdrScreen> {
                                           CashHdrModel model = dataList[index];
 
                                           return InkWell(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      CashDtlScreen(
-                                                    model.idAccount!,
-                                                    model.account!,
-                                                    Urls.getTotalCreditDetails,
-                                                  ),
-                                                ),
-                                              );
-                                            },
+                                            // onTap: () {
+                                            //   Navigator.push(
+                                            //     context,
+                                            //     MaterialPageRoute(
+                                            //       builder: (context) =>
+                                            //           CashDtlScreen(
+                                            //         model.idAccount!,
+                                            //         model.account!,
+                                            //         Urls.getTotalCreditDetails,
+                                            //       ),
+                                            //     ),
+                                            //   );
+                                            // },
                                             child: Container(
                                               color: Colors.white,
                                               margin:
@@ -249,14 +244,8 @@ class _CreditHdrScreenState extends State<CreditHdrScreen> {
   getData(BuildContext context) async {
     isLoading = true;
     setState(() {});
-    var jsonData = jsonEncode({
-      "jsonData": {
-        "fromDate": AppProvider.of(context).fromDate.toIso8601String(),
-        "toDate": AppProvider.of(context).toDate.toIso8601String(),
-      }
-    });
 
-    var data = await DashboardRepo.getTotalCreditHdr(jsonData, context);
+    var data = await DashboardRepo.getTotalCredit(context);
     if (!data.$1) {
       dataList = data.$2;
     }
