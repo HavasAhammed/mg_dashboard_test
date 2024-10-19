@@ -44,6 +44,7 @@ dependencies:
   provider: ^6.1.2
   hive: 
   hive_flutter: 
+  shimmer: 
 
 dev_dependencies:
   flutter_test:

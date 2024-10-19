@@ -15,6 +15,7 @@ import 'package:mg_dashboard/models/currentIpModel.dart';
 import 'package:mg_dashboard/models/departmentModel.dart';
 import 'package:mg_dashboard/models/doctorsListModel.dart';
 import 'package:mg_dashboard/models/expiryMedicineModel.dart';
+import 'package:mg_dashboard/models/hospitalDetailsModel.dart';
 import 'package:mg_dashboard/models/ipCountModel.dart';
 import 'package:mg_dashboard/models/leaveDoctorsModel.dart';
 import 'package:mg_dashboard/models/opAmountModel.dart';
@@ -28,6 +29,27 @@ import 'package:mg_dashboard/ui/widgets/Toast.dart';
 import 'package:mg_dashboard/utils/extensions.dart';
 
 class DashboardRepo {
+  static Future<(bool isError, HospitalDetailsModel)> getHospitalDetails(
+      BuildContext context) async {
+    ResponseModel response = await getApiData(Urls.getHospitalDetails);
+
+    HospitalDetailsModel hospitalDetails = HospitalDetailsModel();
+
+    try {
+      if (response.isError) {
+        Toast.show(response.errorMessage ?? "", context, duration: 3);
+        return (true, hospitalDetails);
+      } else {
+        hospitalDetails =
+            HospitalDetailsModel.fromJson(response.responseObject['data']);
+        return (false, hospitalDetails);
+      }
+    } catch (_) {
+      Toast.show(_.toString(), context, duration: 3);
+      return (true, hospitalDetails);
+    }
+  }
+
   static Future<(bool isError, DashboardModel)> getDashboardData(
       String json, BuildContext context) async {
     ResponseModel response = await postApiData(Urls.getDashboardData, json);
@@ -474,8 +496,8 @@ class DashboardRepo {
     }
   }
 
-  static Future<(bool isError, List<AmountModel> list)>
-      getAmount(String json, BuildContext context) async {
+  static Future<(bool isError, List<AmountModel> list)> getAmount(
+      String json, BuildContext context) async {
     ResponseModel response = await postApiData(Urls.getAmount, json);
     List<AmountModel> list = [];
     try {

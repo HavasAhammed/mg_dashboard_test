@@ -13,51 +13,53 @@ class Urls {
   }
 
   static dynamic getBaseUrl() {
-    // return HiveDb.getUrl() + "apis/api/";
-    // return 'https://app.gotoken.in/dashboard/api/';
-    // return 'https://app.gotoken.in/dashboardhnckpba/api/';
-    return box.get('baseUrl',
-        defaultValue: 'https://app.gotoken.in/dashboard/api/');
+    // return 'https://app.gotoken.in/dashboard';
+    // return 'https://app.gotoken.in/dashboardhnckpba';
+    return box.get('baseUrl', defaultValue: 'https://app.gotoken.in/dashboard');
   }
 
-  static String getDashboardData = "${getBaseUrl()}dashboard/getDashBoardData";
+
+static String getHospitalDetails = "${getBaseUrl()}/api/dashboard/hospital/details";
+  static String getDashboardData =
+      "${getBaseUrl()}/api/dashboard/getDashBoardData";
   static String getTotalIncomeData =
-      "${getBaseUrl()}dashboard/getTotalIncomeData";
+      "${getBaseUrl()}/api/dashboard/getTotalIncomeData";
   static String getTotalIncomeByDepartment =
-      "${getBaseUrl()}dashboard/getTotalIncomeByDepartmant";
+      "${getBaseUrl()}/api/dashboard/getTotalIncomeByDepartmant";
   static String getDoctorAppointments =
-      "${getBaseUrl()}dashboard/income/department/details";
-  static String getTotalCashHdr = "${getBaseUrl()}dashboard/getTotalCash";
+      "${getBaseUrl()}/api/dashboard/income/department/details";
+  static String getTotalCashHdr = "${getBaseUrl()}/api/dashboard/getTotalCash";
   static String getTotalCashDtl =
-      "${getBaseUrl()}dashboard/getTotalCashDetails";
-  static String getTotalUpi = "${getBaseUrl()}dashboard/getTotalUpi";
+      "${getBaseUrl()}/api/dashboard/getTotalCashDetails";
+  static String getTotalUpi = "${getBaseUrl()}/api/dashboard/getTotalUpi";
   static String getTotalUpiDetails =
-      "${getBaseUrl()}dashboard/getTotalUpiDetails";
-  static String getTotalCard = "${getBaseUrl()}dashboard/getTotalCard";
+      "${getBaseUrl()}/api/dashboard/getTotalUpiDetails";
+  static String getTotalCard = "${getBaseUrl()}/api/dashboard/getTotalCard";
   static String getTotalCardDetails =
-      "${getBaseUrl()}dashboard/getTotalCardDetails";
-  static String getTotalCredit = "${getBaseUrl()}dashboard/getTotalCredit";
+      "${getBaseUrl()}/api/dashboard/getTotalCardDetails";
+  static String getTotalCredit = "${getBaseUrl()}/api/dashboard/getTotalCredit";
   static String getTotalCreditDetails =
-      "${getBaseUrl()}dashboard/getTotalCreditDetails";
-  static String getTotalOp = "${getBaseUrl()}dashboard/getTotalOp";
+      "${getBaseUrl()}/api/dashboard/getTotalCreditDetails";
+  static String getTotalOp = "${getBaseUrl()}/api/dashboard/getTotalOp";
   static String getTotalIncomeDetails =
-      "${getBaseUrl()}dashboard/getTotalIncomeDetails";
-  static String getTotalOpCount = "${getBaseUrl()}dashboard/getTotalOp";
+      "${getBaseUrl()}/api/dashboard/getTotalIncomeDetails";
+  static String getTotalOpCount = "${getBaseUrl()}/api/dashboard/getTotalOp";
   static String getTotalOpCountDetails =
-      "${getBaseUrl()}dashboard/getTotalOpDetails";
-  static String getPaidPatients = "${getBaseUrl()}dashboard/doctors/paid";
+      "${getBaseUrl()}/api/dashboard/getTotalOpDetails";
+  static String getPaidPatients = "${getBaseUrl()}/api/dashboard/doctors/paid";
   static String getReviewedPatients =
-      "${getBaseUrl()}dashboard/doctors/reviewed";
-  static String getPharmacyPurchase = "${getBaseUrl()}dashboard/purchase";
-  static String getExpiryMedicine = "${getBaseUrl()}dashboard/ExpiryList";
-  static String getBornCount = "${getBaseUrl()}dashboard/GetBorn";
-  static String getRoomList = "${getBaseUrl()}dashboard/RoomList";
-  static String getDoctorList = "${getBaseUrl()}dashboard/DoctorList";
-  static String getBooking = "${getBaseUrl()}dashboard/doctors";
-  static String getCurrentIp = "${getBaseUrl()}dashboard/getTotalIP";
-  static String getIpCount = "${getBaseUrl()}dashboard/getAllIP";
-  static String getLeaveDoctors = "${getBaseUrl()}dashboard/doctors/leave";
+      "${getBaseUrl()}/api/dashboard/doctors/reviewed";
+  static String getPharmacyPurchase = "${getBaseUrl()}/api/dashboard/purchase";
+  static String getExpiryMedicine = "${getBaseUrl()}/api/dashboard/ExpiryList";
+  static String getBornCount = "${getBaseUrl()}/api/dashboard/GetBorn";
+  static String getRoomList = "${getBaseUrl()}/api/dashboard/RoomList";
+  static String getDoctorList = "${getBaseUrl()}/api/dashboard/DoctorList";
+  static String getBooking = "${getBaseUrl()}/api/dashboard/doctors";
+  static String getCurrentIp = "${getBaseUrl()}/api/dashboard/getTotalIP";
+  static String getIpCount = "${getBaseUrl()}/api/dashboard/getAllIP";
+  static String getLeaveDoctors = "${getBaseUrl()}/api/dashboard/doctors/leave";
   static String getAvailableDoctors =
-      "${getBaseUrl()}dashboard/doctors/present";
-  static String getAmount = "${getBaseUrl()}dashboard/getTotalIncomeDetails";
+      "${getBaseUrl()}/api/dashboard/doctors/present";
+  static String getAmount =
+      "${getBaseUrl()}/api/dashboard/getTotalIncomeDetails";
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mg_dashboard/provider/appProvider.dart';
-import 'package:mg_dashboard/ui/dashboard/dashboardScreen.dart';
 import 'package:mg_dashboard/ui/url/urlScreen.dart';
 import 'package:provider/provider.dart';
 

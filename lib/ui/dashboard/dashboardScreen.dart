@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive/hive.dart';
 import 'package:mg_dashboard/models/DashboardModel.dart';
+import 'package:mg_dashboard/models/hospitalDetailsModel.dart';
 import 'package:mg_dashboard/provider/appProvider.dart';
 import 'package:mg_dashboard/ui/advance/advanceAmountScreen.dart';
 import 'package:mg_dashboard/ui/booking/bookingScreen.dart';
@@ -31,6 +32,7 @@ import 'package:mg_dashboard/ui/reviewed/reviewedPatientsScreen.dart';
 import 'package:mg_dashboard/ui/room/roomListScreen.dart';
 import 'package:mg_dashboard/ui/upi/upiHdrScreen.dart';
 import 'package:mg_dashboard/ui/widgets/customText.dart';
+import 'package:mg_dashboard/ui/widgets/shimmerLoading.dart';
 import 'package:mg_dashboard/utils/colorConst.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -45,9 +47,11 @@ class _DashboardscreenState extends State<Dashboardscreen> {
   final box = Hive.box('settingsBox');
   String? storedUrl;
   DashboardModel dashboardModel = DashboardModel();
+  HospitalDetailsModel hospitalDetailsModel = HospitalDetailsModel();
   int _current = 0;
   final CarouselSliderController sliderController = CarouselSliderController();
   bool isLoadingDashboardData = false;
+  bool isLoading = false;
 
   bool _isVisible = false;
 
@@ -56,6 +60,7 @@ class _DashboardscreenState extends State<Dashboardscreen> {
     super.initState();
     storedUrl = box.get('baseUrl', defaultValue: 'No URL stored');
     getDashboardData(context);
+    getHospitalDetails(context);
   }
 
   void _toggleContainer() {
@@ -101,24 +106,39 @@ class _DashboardscreenState extends State<Dashboardscreen> {
                     getDashboardData(context);
                   },
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
                   child: Center(
-                    child: CustomText(
-                      "Abc Hospital",
-                      fontWeight: FontWeight.bold,
-                      textColor: Colors.black,
-                    ),
+                    child: isLoading
+                        ? CustomShimmer(
+                            height: 12,
+                            width: MediaQuery.of(context).size.width / 3,
+                            radius: 4,
+                          )
+                        : CustomText(
+                            hospitalDetailsModel.name,
+                            fontWeight: FontWeight.bold,
+                            textColor: Colors.black,
+                            textAlign: TextAlign.center,
+                          ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Center(
-                    child: CustomText(
-                      "Orchid Changaramkulam, Thrissur 679574",
-                      fontWeight: FontWeight.bold,
-                      textColor: Colors.grey,
-                    ),
+                    child: isLoading
+                        ? CustomShimmer(
+                            height: 12,
+                            width: MediaQuery.of(context).size.width / 2,
+                            radius: 4,
+                          )
+                        : CustomText(
+                            "${hospitalDetailsModel.address} ${hospitalDetailsModel.street}, ${hospitalDetailsModel.city} ${hospitalDetailsModel.pin}",
+                            fontWeight: FontWeight.bold,
+                            textColor: Colors.grey,
+                            textAlign: TextAlign.center,
+                          ),
                   ),
                 ),
                 Padding(
@@ -180,7 +200,7 @@ class _DashboardscreenState extends State<Dashboardscreen> {
                 // const SizedBox(
                 //   height: 8,
                 // ),
-                // Padding(        
+                // Padding(
                 //   padding: const EdgeInsets.all(8.0),
                 //   child: Text(
                 //     storedUrl ?? '',
@@ -690,6 +710,18 @@ class _DashboardscreenState extends State<Dashboardscreen> {
       AppProvider.of(context).dashboardModel = dashboardModel;
     }
     isLoadingDashboardData = false;
+    setState(() {});
+  }
+
+  getHospitalDetails(BuildContext context) async {
+    isLoading = true;
+    setState(() {});
+
+    var data = await DashboardRepo.getHospitalDetails(context);
+    if (!data.$1) {
+      hospitalDetailsModel = data.$2;
+    }
+    isLoading = false;
     setState(() {});
   }
 }
