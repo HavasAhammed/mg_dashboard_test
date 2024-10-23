@@ -11,6 +11,7 @@ import 'package:mg_dashboard/models/bookingModel.dart';
 import 'package:mg_dashboard/models/bornCountModel.dart';
 import 'package:mg_dashboard/models/cashDetailModel.dart';
 import 'package:mg_dashboard/models/cashHdrModel.dart';
+import 'package:mg_dashboard/models/chartModel.dart';
 import 'package:mg_dashboard/models/currentIpModel.dart';
 import 'package:mg_dashboard/models/departmentModel.dart';
 import 'package:mg_dashboard/models/doctorsListModel.dart';
@@ -66,6 +67,26 @@ class DashboardRepo {
     } catch (_) {
       Toast.show(_.toString(), context, duration: 3);
       return (true, dashboardModel);
+    }
+  }
+
+  static Future<(bool isError, List<ChartModel> list)>
+      getChartData(String json, BuildContext context) async {
+    ResponseModel response =
+        await postApiData(Urls.getTotalIncomeByDepartment, json);
+    List<ChartModel> list = [];
+    try {
+      if (response.isError) {
+        Toast.show(response.errorMessage ?? "", context, duration: 3);
+        return (true, list);
+      } else {
+        list = List<ChartModel>.from(response.responseObject['data']
+            .map((x) => ChartModel.fromJson(x)));
+        return (false, list);
+      }
+    } catch (_) {
+      Toast.show(_.toString(), context, duration: 3);
+      return (true, list);
     }
   }
 

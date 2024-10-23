@@ -21,6 +21,7 @@ D:/flutter projects/free/mg_dashboard/build/windows/x64/runner/Debug/data/flutte
 D:/flutter projects/free/mg_dashboard/build/windows/x64/runner/Debug/data/flutter_assets/assets/icons/review.svg
 D:/flutter projects/free/mg_dashboard/build/windows/x64/runner/Debug/data/flutter_assets/assets/icons/rooms.svg
 D:/flutter projects/free/mg_dashboard/build/windows/x64/runner/Debug/data/flutter_assets/assets/icons/upi.svg
+D:/flutter projects/free/mg_dashboard/build/windows/x64/runner/Debug/data/flutter_assets/assets/images/money.jpg
 D:/flutter projects/free/mg_dashboard/build/windows/x64/runner/Debug/data/flutter_assets/FontManifest.json
 D:/flutter projects/free/mg_dashboard/build/windows/x64/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
 D:/flutter projects/free/mg_dashboard/build/windows/x64/runner/Debug/data/flutter_assets/kernel_blob.bin

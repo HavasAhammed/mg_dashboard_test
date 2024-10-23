@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive/hive.dart';
 import 'package:mg_dashboard/models/DashboardModel.dart';
+import 'package:mg_dashboard/models/chartModel.dart';
 import 'package:mg_dashboard/models/hospitalDetailsModel.dart';
 import 'package:mg_dashboard/provider/appProvider.dart';
 import 'package:mg_dashboard/ui/advance/advanceAmountScreen.dart';
@@ -32,6 +33,8 @@ import 'package:mg_dashboard/ui/reviewed/reviewedPatientsScreen.dart';
 import 'package:mg_dashboard/ui/room/roomListScreen.dart';
 import 'package:mg_dashboard/ui/upi/upiHdrScreen.dart';
 import 'package:mg_dashboard/ui/widgets/customText.dart';
+import 'package:mg_dashboard/ui/widgets/chart.dart';
+import 'package:mg_dashboard/ui/widgets/lineChart.dart';
 import 'package:mg_dashboard/ui/widgets/shimmerLoading.dart';
 import 'package:mg_dashboard/utils/colorConst.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -47,11 +50,13 @@ class _DashboardscreenState extends State<Dashboardscreen> {
   final box = Hive.box('settingsBox');
   String? storedUrl;
   DashboardModel dashboardModel = DashboardModel();
+  List<ChartModel> chartModel = [];
   HospitalDetailsModel hospitalDetailsModel = HospitalDetailsModel();
   int _current = 0;
   final CarouselSliderController sliderController = CarouselSliderController();
   bool isLoadingDashboardData = false;
   bool isLoading = false;
+  bool isLoadingChart = false;
 
   bool _isVisible = false;
 
@@ -61,6 +66,7 @@ class _DashboardscreenState extends State<Dashboardscreen> {
     storedUrl = box.get('baseUrl', defaultValue: 'No URL stored');
     getDashboardData(context);
     getHospitalDetails(context);
+    getChartData(context);
   }
 
   void _toggleContainer() {
@@ -188,24 +194,11 @@ class _DashboardscreenState extends State<Dashboardscreen> {
                     );
                   }).toList(),
                 ),
-                // const SizedBox(height: 20),
-                // const Padding(
-                //   padding: EdgeInsets.symmetric(horizontal: 16),
-                //   child: CustomText(
-                //     'URL :',
-                //     fontSize: 18,
-                //     fontWeight: FontWeight.bold,
-                //   ),
+                const SizedBox(height: 30),
+                // ChartView(
+                //   dataList: chartModel,
                 // ),
-                // const SizedBox(
-                //   height: 8,
-                // ),
-                // Padding(
-                //   padding: const EdgeInsets.all(8.0),
-                //   child: Text(
-                //     storedUrl ?? '',
-                //   ),
-                // )
+                const LineChartSample2()
               ],
             ),
           ),
@@ -608,21 +601,6 @@ class _DashboardscreenState extends State<Dashboardscreen> {
                   ),
                 );
               }),
-          // gridCard(
-          //     text: "Born Count",
-          //     value: dashboardModel.bornCount ?? 0,
-          //     iconPath: "assets/icons/review.svg",
-          //     iconColor: Colors.yellow[900],
-          //     iconBgColor: Colors.yellow[100],
-          //     size: 18,
-          //     onSelected: () {}),
-          // gridCard(
-          //     text: "Pharmacy Purchase",
-          //     value: dashboardModel.totalPharmacyAmt ?? 0,
-          //     iconPath: "assets/icons/doctorCount.svg",
-          //     iconColor: Colors.green,
-          //     iconBgColor: Colors.green[100]!,
-          //     onSelected: () {}),
         ],
       ),
     );
@@ -722,6 +700,26 @@ class _DashboardscreenState extends State<Dashboardscreen> {
       hospitalDetailsModel = data.$2;
     }
     isLoading = false;
+    setState(() {});
+  }
+
+  getChartData(BuildContext context) async {
+    isLoadingChart = true;
+    setState(() {});
+    var jsonData = jsonEncode({
+      "jsonData": {
+        "dashModel": {
+          "fromDate": AppProvider.of(context).fromDate.toIso8601String(),
+          "toDate": AppProvider.of(context).toDate.toIso8601String(),
+        }
+      }
+    });
+
+    var data = await DashboardRepo.getChartData(jsonData, context);
+    if (!data.$1) {
+      chartModel = data.$2;
+    }
+    isLoadingChart = false;
     setState(() {});
   }
 }
